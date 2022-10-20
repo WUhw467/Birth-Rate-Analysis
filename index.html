@@ -1,0 +1,195 @@
+<html>
+<head>
+<style type="text/css">
+body {
+    margin: 0;
+}
+a    {
+font-weight：bold;
+color:white;
+text-decoration:none;
+font-size:150%;
+padding: 15px;
+}
+a.little    {
+font-size:100%;
+}
+a:hover {
+  background-color: #ffcc00;
+}
+a.home{
+    background: #00254d;
+    font-family: "Courier", Times, serif;
+    float: right;
+}
+a.home:hover {
+  background-color: #ffcc00;
+}
+a.download{
+    background: #00254d;
+    font-family: "Courier", Times, serif;
+    padding: 10px;
+    float：center;
+}
+a.download:hover {
+  background-color: #ffcc00;
+}
+.bg{
+    float:left;
+    width:1725px;
+    height:200px;
+    background-image:url(CroppedHealygreen.jpg);
+    background-position:-5px -325px;
+    margin:0px 0px 30px 0px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 17%;
+  background-color: #00254d;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  padding: 10px;
+  text-align:center;
+  font-family: "Courier", Times, monospace;
+}
+li.tabself{
+    background-color: #ffcc00;
+}
+li {
+  padding: 15px;
+}
+h1 {font-size:40px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+    text-align:center;
+}
+h2 {font-size:30px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+    text-align:center;
+}
+h3 {font-size:27px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+}
+h4 {font-size:25px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+}
+p {font-size:25px;
+   font-family: "Courier", Times, serif;
+   text-align:left;
+}
+li.list {
+    font-size:25px;
+   font-family: "Courier", Times, serif;
+}
+ol{
+    font-size:20px;
+   font-family: "Courier", Times, serif;
+}
+</style>
+</head>
+<body>
+<ul>
+    <li>
+       <a href="#Intro">1. Introduction</a>
+    </li>
+    <li>
+      <a href="#Met">2. Methods</a>
+   </li>
+    <li>
+      <a href="#Res">3. Results</a>
+   </li>
+   <li>
+    <a href="#Figure12" class="little">3.1 Figure 1 and 2</a>
+   </li>
+   <li>
+    <a href="#Figure3" class="little">3.2 Figure 3</a>
+   </li>
+   <li>
+    <a href="#Figure4" class="little">3.3 Figure 4</a>
+   </li>
+   <li>
+    <a href="#Figure5" class="little">3.4 Figure 5</a>
+   </li>
+   <li>
+    <a href="#Figure6" class="little">3.5 Figure 6</a>
+   </li>
+   <li>
+    <a href="#Figure7" class="little">3.6 Figure 7</a>
+   </li>
+   <li>
+      <a href="#Dis">4. Discussion</a>
+   </li>
+   <li>
+      <a href="#Con">5. Conclusion</a>
+   </li>
+  </ul>
+<div style="margin-left:20%;padding:16px 16px;height:1000px;">
+    <br>
+    <h1>Relationship between World birth rate and other social factors</h1>
+    <h2>Project Group 15</h2>
+    <h2>Muwen Huang, Chenyue Jin, Hengxin Wu, Tianyi Xu</h2>
+    <h3 id="Intro">1. Introduction:</h3>
+    <p>The birth rate is the number of individuals born in a population in a given amount of time. The human birth rate is stated as the number of individuals born per year per 1000 in the population. Many research groups have examined the negative effects of low birth rates. For example, a low birth rate will accelerate the process of an aging society and put significant pressure on our social basic security welfare policy. Low birth rates will also reduce the workforce in the future. In the current era, both developed and developing countries are experiencing the effects of a low birth rate. Suppose governments know what factors played essential roles in history. In that case, they will take more effective ways to make policy decisions to improve this situation. Our team wanted to look at changes in birth rate and other indicators in low-birth-rate countries in 2019 over the past six decades. And we want to determine what was driving the decline in birth rate or which social factors are related to the birth rate. Our app will introduce the current birth rate situation and the current relationship with the birth rate for all the countries by creating an interactive population birth map, histogram, parallel coordinate, and heatmap. Then we will show the relationship between them in history by creating an interactive linked plot, bubble plot, and an innovative donut plot.</p>
+    <h3 id="Met">2. Methods:</h3>
+    <p>If the reader is interested in the technical details associated with this project then please refer to the following:</p>
+    <iframe src="methods.html" title="Method" width=100% height=700></iframe>
+    <h3 id="Res">3. Results:</h3>
+    <h4 id="Figure12">3.1 Figure 1 and 2</h4>
+    <p>Figure 1</p>
+    <iframe src="figure1_map_of_global_birth_rate.html" title="Method" width=100% height=700></iframe>
+    <p>Figure 2</p>
+    <iframe src="figure2_histogram_counts_country_from_different_range.html" title="Method" width=50% height=400></iframe>
+    <p>Description:</p>
+    <p>According to Figure 1 and Figure 2, people can see that there are 24 countries has an extremely low birth rate. They are Austria, Bosnia and Herzegovina, Bulgaria, Channel Islands, Croatia, Cuba, Finland, Germany, Greece, Hungary, Italy, Japan, Malta, Moldova, Poland, Portugal, Puerto Rico, Qatar, Romania, Singapore, Slovenia, South Korea, Spain, Ukraine. Figure 1 shows that Africa has relatively high birth rates, and mid-Asia follows. Europe and America have relatively low birth rates.</p>
+    <h4 id="Figure3">3.2 Figure 3</h4>
+    <iframe src="figure3_all_parallel_coordinate.html" title="Method" width=100% height=700></iframe>
+    <p>Description:</p>
+    <p>The low birth rates of some countries in 2019 seem to be associated with anomaly values in other socioeconomic factors. In fig. 3, if two variables are negatively related, the lines between them would cross. On the contrary, the lines would be parallel. From fig. 3, we can tell that GDP Per Capita appears to be negatively associated with Birth Rate and Under Five Mortality rates. There is no apparent relationship between the Under Five Mortality Rate and Labor Force Participation Rate. Most importantly, countries with a low level of birth rate in 2019 tend to have a relatively high GDP and a low under-five mortality rate level.</p>
+    <h4 id="Figure4">3.3 Figure 4</h4>
+    <img src="figure4_all_heatmap.png" alt="figure4_all_heatmap" width=100% height=700>
+    <p>Description:</p>
+    <p>A large-scale inspection in fig. 4 reveals more information on the relationship between Birth Rate and all potential factors. Labor Force Participation Rate does not have a strong relationship with Birth Rate. GDP Per Capita is negatively associated with Birth Rate. Percentage of females with No Education, Under Five Mortality Rate, and Maternal Mortality Ratio have strong positive relationships with Birth Rate. Contraceptive Prevalence and Mean Years of Schooling have strong negative associations with Birth Rate. Also, except for Labor Force Participation Rate, other socioeconomic factors appear to be related.</p>
+    <h4 id="Figure5">3.4 Figure 5</h4>
+    <iframe src="figure5_linked_plot_between_birth_rate_other_variabes.html" title="Method" width=100% height=700></iframe>
+    <p>Description:</p>
+    <p>According to the figures, people can see these countries’ birth rate is decreasing over time. Although there are some fluctuations, the overall trend is still declining. Some countries’ birth rates have fallen sharply over the past 60 years, like Qatar and South Korea, where the birth rate was higher than 40 per 1000 women in 1960, but it was below 10 per 1000 women in 2019.</p>
+    <p>By comparing the trend between birth rate and other variables, people can see no similarity between birth rate and labor force participation rate. Unlike the birth rate, the labor force participation rate is relatively stable. Labor force participation rates are even rising for most countries. According to the graph, there is no significant difference between a high birth rate country and a low birth rate country. For example, Qatar has a higher birth rate than Hungary most of the time. Still, they have a similar labor force participation rate. There's no relationship between the two variables, even for the same country. Qatar had a very high birth rate in 1960 and an extremely low birth rate in 2019, but its labor force participation rate in 2019 is higher than in 1960. Because of the lack of contraceptive prevalence data, it is very hard to find the trend of the contraceptive prevalence. So, it can't be concluded whether it is similar to the birth rate. There is a considerable difference between birth rate and GDP per capita. The overall trend for GDP per capita is increasing. The percentage of the female population with no education, under-five mortality, and maternal mortality ratio has a similar tendency to the birth rate. They are all decreasing over time.</p>
+    <h4 id="Figure6">3.5 Figure 6</h4>
+    <iframe src="figure6_schooling_innovative_donut_plot.html" title="Method" width=100% height=700></iframe>
+    <p>Description:</p>
+    <p>According to our common sense, extending the schooling year seems to be the most critical factor that affects the birth rate. In fig. 6, we used novel interaction techniques to show the changing in education levels for each low-fertility country. The mean years of schooling in the low-fertility countries show an increasing trend from 1960 to 2010. For some countries, such as Spain, Italy, and Austria, the trend is steady. While for other countries, such as South Korea, Singapore, and Qatar, the trend seems steeper. Surprisingly, the line appears to go down a bit for Ukraine, Romania, and Hungary.</p>
+    <h4 id="Figure7">3.6 Figure 7</h4>
+    <iframe src="figure7_birth_rate_HDI_bubble_chart.html" title="Method" width=100% height=700></iframe>
+    <p>Description:</p>
+    <p>The Human Development Index (HDI) is a summary measure of average achievement in key dimensions of human development: a long and healthy life, being knowledgeable and having a decent standard of living. The HDI is the geometric mean of normalized indices for each of the three dimensions. The HDI was created to emphasize that people and their capabilities should be the ultimate criteria for assessing the development of a country.</p>
+    <p>Figure 7 shows the relationship between fertility rates in different countries and their Human Development Index in 2019. The graph's x-axis is the birth rate, the y-axis is the HDI, and the size of the flag represents the country's population. As shown in the figure, we can see that the HDI gradually decreases as the birth rate increases, which offers a clear negative correlation between the two features. Moreover, the low birth rate countries (<10) in green are located in the upper left corner of the graph, and the average HDI for these 20+ countries is 0.878. This number is much higher than the average for the other countries, which is 0.676.</p>
+    <h3 id="Dis">4. Discussion:</h3>
+    <p>The birth rate seems to be associated with economic and social factors. Most people may believe that when the country has a better economy, citizens may prefer to have a baby because they have enough money to raise a kid. Results from Figure 3 indicate that developments in other socioeconomic aspects might cause the low birth rates in certain countries in 2019. This finding can be proved by comparing the birth rate and GDP per capita historical trend. Figure 5.2 shows that the GDP per capita is increasing for most countries which means the increase in the economy may cause a decrease in the birth rate. There are several reasons to explain this situation. First, the growth in the economy will provide more entertainment, so people may want to spend more time enjoying their lives instead of spending time raising a child. Second, a high GDP represents a vibrant economy where people pay more attention to their career development and economic growth. That may result in a weak desire to give birth since raising a child might affect a person’s career paths.</p>
+    <p>According to figure 5.3, the percentage of a female with no education decreases as the birth rate. This can be evidence that there is a connection between these two variables. Because of education, women are becoming more and more independent and willing to pursue their careers and dream. So, they may not give up their careers and dreams for children. The under-five mortality rate and Maternal mortality ratio also have a decreasing trend. They could both represent better medical conditions. This can prove that the risk of an early death did not affect people's desire to have children. Figure 5.4 and 5.6 shows that these countries had a higher under-five mortality rate and maternal mortality ratio in 1960 than in 2019, but the birth rate in 2019 is lower than in 1960. </p>
+    <p>According to Figure 4, a higher value of Contraceptive Prevalence indicates better protection against unplanned pregnancy. And that can directly reduce the birth rate. But, because of the lack of contraceptive prevalence data, this conclusion can be proved by the historical data.</p>
+    <p>The increasing level of mean years of schooling would have on the birth rate could be interpreted as follows. A larger value of Mean Years of Schooling means more time spent attending schools, especially during childbearing age. Thus, women might miss the optimal childbearing age because of the burden of giving birth and raising a child without a steady income during student life. For fig. 6, the steady trends of some countries might be because those countries were more developed in 1960. Thus, they already had higher mean years of schooling than other countries, and the later increase would be less than others. The countries with steeper trends were mainly developing counties in 1960. That explains why their latter increases were more significant. The trends for some countries in Eastern Europe seem to start to decrease. That is an alert and would require more in-depth socioeconomic research in the future.</p>
+    <p>In Figure 7, The low birth rate and the HDI show a negative correlation related to the definition of the HDI. As we have learned before, the average length of education of women and GDP per capita in the country is negatively correlated with fertility. These two aspects are covered in the Knowledge and A Decent Standard of Living dimensions of the HDI measure. Moreover, we find that these low birth rate countries generally have high HDI, which exceeds the world average. As a result, people in these countries represent a higher quality of human beings. They are benchmarks for the development of the rest of the world. Thus, our findings also reveal why the world population grows more and more slowly over the course of time.</p>
+   <h3 id="Con">5. Conclusion:</h3>
+   <p>We explore the current status of birth rates in each country in 2019 and the factors that influence them. We also delve into the changes in various social factors in countries with low birth rates over the last 60 years. Based on the above analysis and graphs, we draw the following conclusions.</p>
+  <ol type="1">
+  <li>Status of birth rate: Africa > Asia > Oceania > South America > North America > Europe. The most significant number of countries with a birth rate of 10-20, accounting for 45.5%. Countries with a low birth rate (<10) are the least, accounting for 12.7%.</li>
+  <li>In the last 60 years, the birth rate has decreased year by year with the change in time as the country's GDP per capita, contraceptive prevalence, and people's education level have increased. At the same time, the child mortality rate also decreases year by year, which is positively correlated with the birth rate. The labor force participation rate, on the other hand, does not have a significant effect on this. These aspects are particularly apparent in low birth rate countries.</li>
+  <li>Countries with low fertility in 2019 have an HDI that far exceeds the world level.</li>
+  </ol>
+  <p>The main reason is that people in developed countries lack sufficient incentives to have more children. Developed countries have high incomes and relatively well-developed pension systems. People can live very well on their pensions. Having children is a huge effort, including time, energy, and money, but no apparent return. If you want to experience what it is like to be a parent, having one or two is almost enough, and then more, what is the point? One more child is one more labor force, contributing to the family. One more child may be able to escape from poverty for the family. Thus, the return is more evident than in developed countries.</p>
+  <p>Human Development Index is an essential indicator to measure the development of a country by people. The vital factors affecting it must come down to the issue of people. There is a proverb that quantitative change causes qualitative change. It has been proven that the increase in material level (increase in HDI) and the increase in human life expectancy make people less and less willing to have children. At the same time, the world average of HDI is getting higher every year, which confirms our future trend: lower population quantity and higher human quality.</p>
+  <p>The global population is at a turning point. World population growth has slowed further, while at the same time, population aging has reached an unprecedented rate. This is an issue we would like to continue to discuss in the future. We hope that our research will provide some insights and recommendations to national statistical offices or population policymakers.</p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </body>
+  
+</html>

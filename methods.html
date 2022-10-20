@@ -1,0 +1,145 @@
+<html>
+<style type="text/css">
+body {
+    margin: 0;
+}
+a    {
+font-weight：bold;
+color:white;
+text-decoration:none;
+font-size:150%;
+padding: 15px;
+}
+a.little    {
+font-size:100%;
+}
+a:hover {
+  background-color: #ffcc00;
+}
+a.home{
+    background: #00254d;
+    font-family: "Courier", Times, serif;
+    float: right;
+}
+a.home:hover {
+  background-color: #ffcc00;
+}
+a.download{
+    background: #00254d;
+    font-family: "Courier", Times, serif;
+    padding: 10px;
+}
+a.download:hover {
+  background-color: #ffcc00;
+}
+.bg{
+    float:left;
+    width:1725px;
+    height:200px;
+    background-image:url(CroppedHealygreen.jpg);
+    background-position:-5px -325px;
+    margin:0px 0px 30px 0px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #00254d;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  padding: 10px;
+  font-family: "Courier", Times, monospace;
+}
+li.tabself{
+    background-color: #ffcc00;
+}
+li {
+  padding: 15px;
+}
+h1 {font-size:40px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+}
+h2 {font-size:30px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+}
+h3 {font-size:27px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+}
+h4 {font-size:25px;
+    font-weight:bold;
+    font-family: "Courier", Times, serif;
+}
+p {font-size:25px;
+   font-family: "Courier", Times, serif;
+   text-align:left;
+}
+li.list {
+    font-size:25px;
+   font-family: "Courier", Times, serif;
+}
+ol{
+    font-size:20px;
+   font-family: "Courier", Times, serif;
+}
+</style>
+</head>
+<head>
+<title>Title</title>
+</head>
+
+<body>
+
+<h1>Methods:</h1>
+
+<h2>Data collection and cleaning:</h2>
+
+<p>We will be visualizing the fertility dataset of 140 countries with 20 different variables, and each country has years of quantitive data on these variables. The time series goes from 1950 to 2020. The entire dataset roughly contains seven aspects relevant to fertility rates, including actual counts of children per woman, women’s educational attainment rate, contraceptive prevalence, general economic factors (GDP, human development index), fertility rate projections, labor force participation, maternal mortality rate, and child mortality rate. Using this dataset, we hope to visualize the birth rates in countries worldwide and how the birth rate has affected some other factors over the last 60 years. This dataset is obtained by merging 15 CSV files downloaded from the World Bank and the United Nations. The columns in the dataset have very long names, and it will cause some trouble when we do the visualization so we will change the columns’ names. Because these CSV files share some same columns and some columns contain useless data, we will remove the redundant columns after the amalgamation. The rows with missing values will not be deleted because the missing value won’t have a huge effect when we do the visualization. Other data in the row may play a critical role. <p>
+
+<h2>Design Choice:</h2>
+
+<p>
+Figure 1 is a choropleth map of birth rate over the world. The countries are colored based on the actual number of birth rates in 2019 with a sequential color scheme, which means the darker the color, the higher the birth rate. The map is also designed to be interactive. So, people can see the exact number and the country name by moving their mouse to a country’s territory. Plotly creates the choropleth map in python. We want to use this choropleth map to compare the birth rates of the different countries in 2019. 
+<br>
+<br>
+Figure 2 is a histogram that counts the number of countries with different birth rates. We created this histogram with Plotly in python. It is an interactive plot so people can see the exact number as the choropleth map. This histogram can split the birth rate into different ranges and count how many countries are in these ranges. People can feel more directly how many countries have low birth rates.
+<br>
+<br>
+In Figure. 3, we drew a parallel coordinate plot. The plot is essential because it shows the relationship between birth rate and all the potential influencing factors in 2019. We made the boxes visible because it would be easier to tell where the individual data point lies within the distribution of certain variables and whether it is an outlier or not. We used a discrete color scheme because we want to highlight countries with low birth rates in 2019. Values are standardized to ensure that the feature values are on the same scale. Also, in that way, the values are more separated. We made the plot interactive for the following two reasons. Firstly, we can trace the country ID of each data vector with the tooltip technique. Secondly, we can only choose to inspect the low birth rate countries by clicking on the corresponding legend label.
+<br>
+<br>
+In Figure.4, we made a heatmap. It visualizes the correlation matrix of birth rate and all the potential influencing factors with data from 1960 to 2019. The matrix is a large-scale examination result of the correlation between the variables. We used a sequential color scale because the correlation coefficient is a continuous variable. We chose to display the upper half of the matrix because that would be enough to include all pairs of relationship and saves space. The lower half is identical to the upper half. We annotated the coefficients on the matrix because numbers can help explain the extent of the relationship.
+<br>
+<br>
+Figure 5 is a line plot that shows the distribution of countries’ birth rates, which the birth rate lower than 10 births per 1,000 women in 2019. Figure 5.1 is a bar plot which shows the changes of these countries’ under-five mortalities. The Figure 5.8 is a boxplot that shows the quantiles of the under-five mortalities of these countries. The rest of the plots try to show the same thing with different variables. These figures are linked. By clicking the line from Figure 5, the rest of the figures will show this specific country’s distribution of under-five mortality and other variables. The line and bar plots are interactive. People can zoom in and zoom out to see the details. Python creates these figures with Altair. Altair has different ways to implement the link function. My figures are linked with selection single, but people can choose another selector like selection interval when creating their figures. We use this linked view because this can help people compare the distribution between birth rate and other variables. We may find some connections or similarities between birth rate and other variables by comparing the distributions.
+<br>
+<br>
+In Figure 6 we made a line plot with an outer ring serving as a selection bar. It counts as an innovative view. The plot shows the change in the mean years of schooling for low-fertility countries from 1960 to 2010. It also acts as a supplement as well as an improvement to the link plot. We used a line plot because it optimally shows the time series of Mean Years of Schooling for the low-fertility countries. We applied a discrete color scheme because we want to distinguish between series for different countries. The plot can be considered an innovative view because of the creative interaction techniques. Since it could be a bit hard to select an individual country in fig. 5, we decided to add the low-fertility countries to a selection ring that surrounds the line plot. The line plot for a certain country will appear only if the user hovers over that country on the selection ring. That makes it possible to identify and then select the countries effortlessly. Also, the design provides more in-depth interaction for users.
+<br>
+<br>
+In Figure 7, considering that many countries have enacted some policies regarding fertility, we want to consider the impact of fertility on the world from a macro level. We want to explore how low birth rates countries compare to other countries regarding their HDI levels. This is because the HDI can also be used to question national policy choices.
+<br>
+<br>
+Use a bubble chart instead of a scatter chart and use flags instead of bubbles. When using a scatter plot, we cannot visually identify which dot represents which country, even if it is colored with the continent. So we decided to use flags instead of points to show them directly on the graph. In addition, to make the diagram more aesthetically pleasing, we wanted to make the flags not uniform in size. Thus, Figure 7 is an innovative view. We had a struggled experience and tried many ways to attached the flag icon. Considering that the focus of this graph is on people, we choose the population size characteristic of the country as the size of the bubble.
+<br>
+<br>
+Add auxiliary curves and reference lines. To better distinguish low-fertility countries from other countries, we add an interval. The interval 5-10 was chosen instead of 0-10 because there are currently no countries with values below 5, and 5-10 allows the country flags to be more dispersed and easier to observe in the graph. And to better see the differences in HDI levels between countries, we added three reference lines for countries with birth rates below 10, other countries, and the world level. </p>
+
+<h2>Reflection:</h2>
+
+<p>
+Initially, we plan to visualize both the recorded and text datasets. For the record data, we considered drawing four figures. An animated choropleth map of the birth rate changing over several decades, a bubble plot of the birth rate and GDP, a ternary diagram of the relationship between birth rate and educational level, and an innovative view of the human development index (HDI) combining line plot, area chart, and histograms. We thought of using networks to illustrate the connection between tweets for the text data. 
+<br>
+<br>
+However, we only focused on the recorded dataset for our first submission. We implemented the choropleth map, the bubble plot, and the innovative view of HDI. However, we found out that the ternary plot required the sum of the three variables to be a constant, and our variables did not fit for drawing a ternary plot. Therefore, our technique goal has changed to drawing a linked plot of a scatter plot and a box plot. We also add a slope chart showing the change in Under Five Mortality between 1960 and 2019 for the six continents. Overall, most of our original thoughts were realized from the first submission.
+<br>
+<br>
+Our graphs have changed a lot in the final product compared to the first submission. Instead of analyzing all the countries, we want to focus on countries with very low birth rates in 2019. So, we completely redesigned all figures and rewrote the narrative. We started with a static choropleth map of the birth rate of all countries in 2019 and a histogram to find out which countries have a birth rate lower than 10 births per 1000 people. We then made a parallel coordinate plot with low birth rate countries highlighted and a correlation matrix to compare the relationship between each socioeconomic factor and the birth rate. Then we expanded the original linked plot into a large graph that linked birth rate with not only 1 variable. Using this linked plot, people can compare the distribution between birth rate and other variables. For fig. 6, we draw an innovative donut plot that shows the distribution of these countries’ mean years of schooling. Finally, we used a bubble plot to visualize the relationship between HDI and the birth rate. Our goal is still to find out the relationship between birth rate and other social factors. By analyzing the relationship between these features and the birth rate, we want to find out how and why the birth rate decreases and how we can improve this situation.
+</p>
+
+</body>
+</html>

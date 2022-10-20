@@ -1,0 +1,134 @@
+---
+title: "Data Cleaning"
+author: "Group 15"
+date: "3/23/2022"
+output: html_document
+---
+
+# Load All Files 
+##You can find all files in google grive: https://drive.google.com/drive/folders/1sesNObh_J6cNO1ht6q3L41js5WIox8R1
+```{r}
+cur_path = getwd()[1]
+data_path = paste(cur_path,'record_data',sep='/')
+file_names = list.files(data_path)
+file_path <- paste(data_path,file_names,sep = '/')
+dfs <- lapply(file_path, read.csv)
+files <- gsub('.csv$','',file_names)
+names(dfs) <- files
+```
+
+```{r}
+df1 <- dfs$`annual-number-of-births-by-world-region`
+df2 <- dfs$`children-per-woman-by-gdp-per-capita`
+df3 <- dfs$`children-per-woman-UN`
+df4 <- dfs$`children-per-woman-vs-human-development-index`
+df5 <- dfs$`demand-for-family-planning`
+df6 <- dfs$`female-labor-force-participation-rates-by-national-per-capita-income`
+df7 <- dfs$`fertility-rate-vs-share-of-women-between-25-and-29-years-old-with-no-education`
+df8 <- dfs$`fertility-rate-vs-the-share-living-in-extreme-poverty`
+df9 <- dfs$`fertility-vs-child-mortality-family-planning-policy`
+df10 <- dfs$`fertility-vs-contraception`
+df11 <- dfs$`fertility-vs-wanted-fertility`
+df12 <- dfs$`maternal-mortality-vs-fertility`
+df13 <- dfs$`total-fertility-rate-including-un-projections-through-2100`
+df14 <- dfs$`total-fertility-rate-slope-chart`
+df15 <- dfs$`womens-educational-attainment-vs-fertility`
+# new add csv
+df16 <- dfs$`crude-birth-rate`
+```
+
+# Merge data and delete unused columns
+```{r}
+merge_df2 <- Reduce(function(x, y) merge(x, y, by=c("Entity","Year")), list(df6,df7,df9,df10,df12,df15))
+merge_df2_new <- merge_df2[-c(3,8,11,12,13,14,16,17,18,21,22,24,25,26,27,29,30)]
+merge_df2_new
+```
+
+# Rename colmuns
+```{r}
+colnames(merge_df2_new)
+```
+
+```{r}
+names <- c("Entity", "Year", "Labor_force_participation_rate", "GDP_per_capita", "Population","Continent", "Children_pre_woman","Percentage_of_female_population_age_25_29_with_no_education","Under_five_mortality", "Fertility_rate", "Contraceptive_prevalence", "Maternal_mortality_ratio", "Mean_years_of_schooling")
+colnames(merge_df2_new) <- names
+```
+
+# Add "crude-birth-rate.csv" and merge df -- 2022/04/05 changed
+```{r}
+# Remove "Fertility_rate"
+merge_df2_new <- merge_df2_new[-c(10)]
+# Add "crude-birth-rate.csv" and merge df
+merge_df2_new <- merge(merge_df2_new,df16)
+colnames(merge_df2_new)[14] <- "Birth_rate"
+# Remove column "code"
+merge_df2_new <- merge_df2_new[-c(13)]
+merge_df2_new
+```
+
+
+# Identify the continental plate where it is located
+```{r}
+df <- merge_df2_new[merge_df2_new$Continent != "",][c(1,6)]
+```
+
+```{r}
+for (i in 1:nrow(merge_df2_new)){
+  if (merge_df2_new[i,]$Continent == ""){
+    Entity <- merge_df2_new[i,]$Entity
+    if (Entity %in% df$Entity){
+      Continent <- df[df$Entity == Entity,]$Continent
+      merge_df2_new[i,]$Continent <- Continent
+    }
+  }
+}
+```
+
+# Delete countries that do not have continental plates
+```{r}
+plot_df <- merge_df2_new[merge_df2_new$Continent != "",]
+plot_df
+```
+
+# Some countries have too little data, there are enough countries with 60 years of data 
+# keep only those countries
+```{r}
+plotDF=plot_df
+country <- unique(plotDF$Entity)
+num_of_years <- c()
+for (cont in country){
+  num_of_year <- length(unique(plotDF[plotDF$Entity == cont,]$Year))
+  num_of_years <- c(num_of_years, num_of_year)
+}
+num_of_years
+```
+
+# Find the names of these countries
+```{r}
+country <- unique(plotDF$Entity)
+wanted_country <- c()
+for (cont in country){
+  num_of_year <- length(unique(plotDF[plotDF$Entity == cont,]$Year))
+  if (num_of_year == 60){
+    wanted_country <- c(wanted_country, cont)
+  }
+}
+```
+
+# Delete countries that do not have 60-year numbers
+```{r}
+new_plotDF <- plotDF[plotDF$Entity %in% wanted_country,]
+new_plotDF
+```
+
+# Save the cleaned dataset
+```{r}
+write.csv(new_plotDF,"final_dataset_ALL.csv", row.names = FALSE)
+```
+
+
+
+
+
+
+
